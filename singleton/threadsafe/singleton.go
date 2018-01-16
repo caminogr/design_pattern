@@ -1,19 +1,22 @@
 package singleton
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+	"time"
+)
 
 type singleton struct {
 }
 
-// インスタンス保持変数
 var instance *singleton
+var once sync.Once
 
 func GetInstance() *singleton {
-	if instance == nil {
-		// time.Sleep(5000)
+	once.Do(func() {
+		time.Sleep(5000)
 		instance = &singleton{}
 		fmt.Println("instanceを生成しました")
-	}
-
+	})
 	return instance
 }
