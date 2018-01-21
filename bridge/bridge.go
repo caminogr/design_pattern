@@ -32,19 +32,19 @@ func (self *StringDisplayImpl) printLine() string {
 }
 
 type DefaultDisplay struct {
-	Impl DisplayImpl
+	impl DisplayImpl
 }
 
 func (self *DefaultDisplay) Open() string {
-	return self.Impl.rawOpen()
+	return self.impl.rawOpen()
 }
 
 func (self *DefaultDisplay) Print() string {
-	return self.Impl.rawPrint()
+	return self.impl.rawPrint()
 }
 
 func (self *DefaultDisplay) Close() string {
-	return self.Impl.rawClose()
+	return self.impl.rawClose()
 }
 
 func (self *DefaultDisplay) Display() string {
